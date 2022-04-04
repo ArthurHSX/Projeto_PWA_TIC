@@ -7,10 +7,6 @@
     line-height: 1.5rem;
 }
 
-body {
-    background-color: blanchedalmond;
-}
-
 input {
     flex: 1;
     height: 2rem;
@@ -35,59 +31,61 @@ h3 {
     font-weight: bold;
 }
 
-.mt1 {
-    margin-top: 1rem;
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
-.mt2 {
-    margin-top: 2rem;
+img.center.add {
+    height: 2rem;
+    width: 2rem;
+    opacity: 80%;
 }
 
-.mt3 {
-    margin-top: 3rem;
+img.center.marker {
+    height: 2rem;
+    width: 2rem;
+    opacity: 80%;
 }
 
-.mt4 {
-    margin-top: 4rem;
+.content {
+    padding: 0.5rem;
+}
+
+.hearderBar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 3rem;
+    background-color: #F1A87E;
+    color: #fff;
+    opacity: 85%;
+    margin-bottom: 0.5rem;
+}
+
+.modalArea {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: .5em;
+    padding: 1.2em;
+    border-radius: .3rem;
+    z-index: 0;
+    background: #FFF9F7;
+    border: thin solid #EEE8E6;
+}
+
+.bottom {
+    bottom: 0;
 }
 
 .container {
     display: flex;
     flex-direction: row;
-}
-
-.hearderBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3rem;
-    background-color: white;
-    opacity: 70%;
-}
-
-.defaultMap {
-    position: static;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.modalArea {
-    position: fixed;
-    left: 0;
-    right: 0;
-    margin: 1em;
-    padding: 1.2em;
-    border: thin solid rgb(138, 136, 136);
-    border-radius: .3rem;
-    background-color: #fff;
-    z-index: 0;
-}
-
-.bottom {
-    bottom: 0;
+    align-items: center;
 }
 
 .container-search {
@@ -102,6 +100,7 @@ h3 {
     width: 6rem;
     min-height: 3rem;
     border: thin solid rgb(138, 136, 136);
+    border-radius: .3rem;
 }
 
 .centered {
@@ -122,17 +121,73 @@ h3 {
     align-items: center;
 }
 
-.field-hour {
-    max-width: 6rem;
+.list {
+    width: 100%;
+    list-style: none;
 }
+
+.list.petshop li {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.4rem;
+    min-height: 2rem;
+    border-radius: .5rem;
+}
+
+.list li {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.4rem;
+    min-height: 2rem;
+}
+
+#blank {
+    text-align: center;
+    padding-top: 5rem;
+    width: 100%;
+    opacity: 25%;
+}
+
+#blank * {
+    text-align: center;
+}
+
+.blank-image-pet {
+    width: 100%;
+    min-width: 35rem;
+    height: 19rem;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Botões */
 
 .button {
     height: 3rem;
     min-width: 3rem;
     padding: 0.25rem 0.75rem;
-    border-radius: 0.5rem;
     background-color: #edf6f9;
     border: thin solid #dce5e8;
+    line-height: 1rem;
+}
+
+.button.floatingroundedbutton {
+    min-height: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%), 0px 3px 5px -1px rgb(0 0 0 / 20%);
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    z-index: 4000;
 }
 
 .button:active {
@@ -143,9 +198,163 @@ h3 {
 .buttonGroup {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 0.75rem;
+}
+
+.buttonGroup.end {
+    justify-content: flex-end;
 }
 
 .buttonGroup .button {
-    min-width: 10rem;
+    flex: 1;
+}
+
+.buttonGroup .button.floatingroundedbutton.bottom {
+    bottom: 3rem;
+    right: 3rem;
+    position: absolute;
+}
+
+.buttonGroup .button.half {
+    flex: 0.5;
+}
+
+.buttonGroup .button.third {
+    flex: 0.33;
+}
+
+.buttonGroup .button.quarter {
+    flex: 0.25;
+}
+
+.buttonGroup .button:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.buttonGroup .button:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.buttonGroup .button:first-child:last-child {
+    border-radius: 0.5rem;
+}
+
+.buttonGroup .button.floatingroundedbutton:first-child:last-child {
+    border-radius: 5rem;
+}
+
+.half {
+    flex: 0.5;
+}
+
+.third {
+    flex: 0.33;
+}
+
+.quarter {
+    flex: 0.25;
+}
+
+.fifty {
+    flex: 0.2;
+}
+
+
+/* Cores */
+
+.primary {
+    color: #fff;
+    background: #F1A87E;
+    border: thin solid #E0976D;
+}
+
+.primary:active {
+    background: #CF865C;
+    border: thin solid #BE754B;
+}
+
+.secondary {
+    color: #000;
+    background: #F2CBB5;
+    border: thin solid #E1BAA4;
+}
+
+.secondary:active {
+    background: #D0A993;
+    border: thin solid #C09882;
+}
+
+.light {
+    color: #000;
+    background: #FFF9F7;
+    border: thin solid #EEE8E6;
+}
+
+.light:active {
+    background: #DDD7D5;
+    border: thin solid #CCC6C4;
+}
+
+.dark {
+    color: #fff;
+    background: #3D1E0C;
+    border: thin solid #2C0D0B;
+}
+
+.dark:active {
+    background: #200703;
+    border: thin solid #200402;
+}
+
+.sucess {
+    color: #fff;
+    background: #60D394;
+    border: thin solid #4FC283;
+}
+
+.sucess:active {
+    background: #3EB172;
+    border: thin solid #2DA061;
+}
+
+.warning {
+    color: #FFF;
+    background: #FADD37;
+    border: thin solid #E9CC26;
+}
+
+.warning:active {
+    background: #D8BB15;
+    border: thin solid #C7AA04;
+}
+
+.danger {
+    color: #fff;
+    background: #C5283D;
+    border: thin solid #B4172C;
+}
+
+.danger:active {
+    background: #A3061B;
+    border: thin solid #92040A;
+}
+
+
+/* Espaçamentos */
+
+.mt1 {
+    margin-top: 1rem;
+}
+
+.mt2 {
+    margin-top: 2rem;
+}
+
+.mt3 {
+    margin-top: 3rem;
+}
+
+.mt4 {
+    margin-top: 4rem;
 }

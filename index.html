@@ -11,89 +11,195 @@
 </head>
 
 <body>
-    <div id="componente1" class="component hidden">
+    <div id="componente-0" class="component hidden">
         <header class="hearderBar centered">
             <h1>Delivery pet</h1>
         </header>
 
-        <img src="./images/maps-bh.png" class="defaultMap">
-        <button id="markPethop" style="position: absolute; top: 10em; left: 10em; z-index: 0;" class="button">petshop</button>
-
-        <div class="modalArea bottom">
-            <h2>O que o seu pet precisa hoje? </h2>
-
-            <input type="text" class="mt1">
-
-            <div class="container-search mt2">
-                <div class="searchBox centered">
-                    <h3>Banho e Tosa</h3>
-                </div>
-
-                <div class="searchBox centered">
-                    <h3>HotelPet</h3>
-                </div>
+        <div class="content">
+            <div class="buttonGroup">
+                <button class="button sucess">botão</button>
+                <button class="button warning">botão</button>
+                <button class="button danger">botão</button>
+            </div>
+            <div class="mt1 buttonGroup">
+                <button class="button light">Alguma coisa</button>
+            </div>
+            <div class="mt1 buttonGroup">
+                <button class="button light half">Alguma coisa</button>
+                <button class="button dark half">Alguma coisa</button>
+            </div>
+            <div class="mt1 buttonGroup">
+                <button class="button primary third">Alguma coisa</button>
+                <button class="button secondary third">Alguma coisa</button>
+                <button class="button light third">Alguma coisa</button>
+            </div>
+            <div class="mt1 buttonGroup">
+                <button class="button primary quarter">Alguma coisa</button>
+                <button class="button secondary quarter">Alguma coisa</button>
+                <button class="button light quarter">Alguma coisa</button>
+                <button class="button dark quarter">Alguma coisa</button>
+            </div>
+            <div class="mt1 buttonGroup end">
+                <button class="button sucess half">Alguma coisa</button>
+            </div>
+            <div class="mt1 buttonGroup end">
+                <button class="button floatingroundedbutton"></button>
             </div>
 
+            <h1 class="mt1">Titulo 1</h1>
+            <p>Parágrafo</p>
+            <h2>Titulo 2</h2>
+            <p>Parágrafo</p>
+            <h3>Titulo 3</h3>
+            <p>Parágrafo</p>
+
+            <p class="mt1"></p>
+            <p class="primary">Parágrafo</p>
+            <p class="secondary">Parágrafo</p>
+            <p class="light">Parágrafo</p>
+            <p class="dark">Parágrafo</p>
+            <p class="sucess">Parágrafo</p>
+            <p class="warning">Parágrafo</p>
+            <p class="danger">Parágrafo</p>
+        </div>
+
+    </div>
+
+    <div id="componente1" class="component hidden">
+        <header class="hearderBar primary centered">
+            <h1>Petshops favoritos</h1>
+        </header>
+
+        <div class="content">
+            <div id="blank">
+                <img src="./images/pet-background.png" class="center">
+                <p class="mt3">Nenhum petshop cadatrado ainda... </p>
+            </div>
+        </div>
+
+        <div class="content">
+            <ul id="listaPetshops" class="list petshop hidden">
+            </ul>
+        </div>
+
+        <div class="buttonGroup bottom end">
+            <button id="btnNovoPetshop" class="button bottom floatingroundedbutton secondary">
+                <img src="./images/mono-add.png" class="center add">
+            </button>
         </div>
     </div>
 
-    <div id="componente2" class="component ">
+    <div id="componente2" class="component">
         <div class="modalArea">
             <div class="container">
                 <div>
-                    <h2>Agendar serviço</h2>
+                    <h1>Cadastro de petshop</h1>
                 </div>
+            </div>
+            <div class="mt3">
+                <div class="field">
+                    <label class="third">Nome:</label>
+                    <input id="iptNome" type="text">
+                </div>
+                <div class="field mt1">
+                    <label class="third">Endereço:</label>
+                    <input id="iptEndereco" type="text">
+                </div>
+            </div>
+            <div class="mt2">
+                <div class="container" style="justify-content: space-between;">
+                    <div>
+                        <h3>Serviços ofertados:</h3>
+                    </div>
+                    <div class="buttonGroup end">
+                        <button id="btnNewServicePet" class="button secondary">
+                            novo serviço
+                        </button>
+                    </div>
+                </div>
+
+                <div id="divFieldServico" class="mt1 hidden">
+                    <div class="field">
+                        <label class="fifty">Nome:</label>
+                        <input id="iptNome" type="text">
+                    </div>
+                    <div class="field mt1">
+                        <label class="fifty">Preço:</label>
+                        <input id="iptValor" type="text">
+                    </div>
+                    <div class="buttonGroup mt3">
+                        <button id="btnVoltarPet" class="button ">Voltar</button>
+                        <button id="btnAddService" class="button sucess">Adicionar servico</button>
+                    </div>
+                </div>
+
+                <ul id="ulListaServico" class="list">
+                </ul>
+
+                <div id="divSalvarPetshop">
+                    <div class="buttonGroup mt3">
+                        <button id="btnVoltarIni" class="button ">Voltar</button>
+                        <button class="button sucess">Confirmar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="componente3" class="component hidden">
+        <div class="modalArea">
+            <div class="container">
                 <div>
-                    <button id="btnCloseSch">x</button>
+                    <h1>Nome petshop</h1>
                 </div>
             </div>
-
-
             <div class="container mt2">
-                <span>I</span>
-                <h4>Nome loja</h4>
+                <div class="quarter">
+                    <img src="./images/maker-maps.png" class="center marker">
+                </div>
+                <div style="margin-left: 0.8em;">
+                    <label id="lblEnderecoPet">Rua Silveira Pereira, 335, Dona Silva, BH - MG </label>
+                </div>
             </div>
-
             <div class="mt2">
-                <h3>Serviços disponíveis</h3>
-                <p>x</p>
-                <p>x</p>
-                <p>x</p>
-                <p>x</p>
-                <p>x</p>
-            </div>
-
-            <div class="mt2">
-                <h3>Dispnibilidade de horário</h3>
-                <input type="text">
-            </div>
-
-
-            <div class="mt2">
-                <h3>Buscar o pet entre:</h3>
-                <div class="field">
-                    <label>De</label>
-                    <input type="text" class="field-hour">
-                    <label>Até</label>
-                    <input type="text" class="field-hour">
+                <div class="container" style="justify-content: space-between;">
+                    <div>
+                        <h3>Serviços ofertados:</h3>
+                    </div>
+                    <div class="buttonGroup end">
+                        <button id="btnNewServicePet" class="button secondary">
+                            novo serviço
+                        </button>
+                    </div>
                 </div>
 
-            </div>
-
-            <div class="mt2">
-                <h3>Entregar o pet entre:</h3>
-                <div class="field">
-                    <label>De</label>
-                    <input type="text" class="field-hour">
-                    <label>Até</label>
-                    <input type="text" class="field-hour">
+                <div id="divFieldServicoPet" class="mt1 hidden">
+                    <div class="field">
+                        <label class="fifty">Nome:</label>
+                        <input id="iptNomePet" type="text">
+                    </div>
+                    <div class="field mt1">
+                        <label class="fifty">Preço:</label>
+                        <input id="iptValorPet" type="text">
+                    </div>
+                    <div class="buttonGroup mt3">
+                        <button id="btnVoltarPet" class="button ">Voltar</button>
+                        <button id="btnAddServicePet" class="button sucess">Adicionar servico</button>
+                    </div>
                 </div>
 
-            </div>
+                <ul id="ulListaServico" class="list">
+                </ul>
 
-            <div class="buttonGroup mt3">
-                <button id="btnCancelSch" class="button">Cancelar</button>
-                <button class="button">confirmar</button>
+                <div id="divSalvarPet">
+                    <div class="buttonGroup mt3">
+                        <button id="btnVoltarIni" class="button ">Voltar</button>
+                        <button class="button sucess">Confirmar</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
