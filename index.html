@@ -2,12 +2,22 @@
 <html lang="pt-BR">
 
 <head>
-    <title>DeliveryPet</title>
+    <title>Petshop favoritos</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
+    <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Tô Ferrado" />
+    <link rel="icon" type="image/png" href="./images/icones/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./images/icones/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./images/icones/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./images/icones/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./images/icones/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/icones/apple-icon-180x180.png" />
 </head>
 
 <body>
@@ -44,8 +54,8 @@
             </div>
             <div class="mt3">
                 <div class="field">
-                    <label class="third">Nome:</label>
-                    <input id="iptNome" type="text">
+                    <label class="third">Petshop:</label>
+                    <input id="iptNome" type="text" autocomplete="off">
                 </div>
                 <div class="field mt1">
                     <label class="third">Endereço:</label>
@@ -66,12 +76,12 @@
 
                 <div id="divFieldServico" class="mt1 hidden">
                     <div class="field">
-                        <label class="fifty">Nome:</label>
-                        <input id="iptNomeServico" type="text">
+                        <label class="fifty">Serviço:</label>
+                        <input id="iptNomeServico" type="text" autocomplete="off">
                     </div>
                     <div class="field mt1">
                         <label class="fifty">Preço:</label>
-                        <input id="iptValorServico" type="text">
+                        <input id="iptValorServico" type="number" autocomplete="off">
                     </div>
                     <div class="buttonGroup mt3">
                         <button id="btnVoltarService" class="button ">Voltar</button>
@@ -97,7 +107,7 @@
         <div class="modalArea">
             <div class="container">
                 <div>
-                    <h1>Nome petshop</h1>
+                    <h1 id="h1NomePetshop">Nome petshop</h1>
                 </div>
             </div>
             <div class="container mt2">
@@ -105,7 +115,7 @@
                     <img src="./images/maker-maps.png" class="center marker">
                 </div>
                 <div style="margin-left: 0.8em;">
-                    <label id="lblEnderecoPet">Rua Silveira Pereira, 335, Dona Silva, BH - MG </label>
+                    <label id="lblEnderecoPet"></label>
                 </div>
             </div>
             <div class="mt2">
@@ -122,26 +132,27 @@
 
                 <div id="divFieldServicoPet" class="mt1 hidden">
                     <div class="field">
-                        <label class="fifty">Nome:</label>
-                        <input id="iptNomePet" type="text">
+                        <label class="fifty">Serviço:</label>
+                        <input id="iptNomeServicoPet" type="text">
                     </div>
                     <div class="field mt1">
                         <label class="fifty">Preço:</label>
-                        <input id="iptValorPet" type="text">
+                        <input id="iptValorServicoPet" type="number">
                     </div>
                     <div class="buttonGroup mt3">
-                        <button id="btnVoltarPet" class="button ">Voltar</button>
+                        <button id="btnVoltarServicoPet" class="button ">Voltar</button>
                         <button id="btnAddServicePet" class="button sucess">Adicionar servico</button>
                     </div>
                 </div>
 
-                <ul id="ulListaServico" class="list">
+                <ul id="ulListaServicoPet" class="list">
                 </ul>
 
                 <div id="divSalvarPet">
                     <div class="buttonGroup mt3">
-                        <button id="btnVoltarIni" class="button ">Voltar</button>
-                        <button class="button sucess">Confirmar</button>
+                        <button id="btnDeletarPet" class="button danger">Deletar</button>
+                        <button id="btnVoltarPet" class="button ">Voltar</button>
+                        <button id="btnSalvarPet" class="button sucess">Confirmar</button>
                     </div>
                 </div>
 
