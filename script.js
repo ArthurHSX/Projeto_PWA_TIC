@@ -1,23 +1,47 @@
-let telas = ['componente-0',
-    'componente1', 'componente2'
-];
+let telas = ['componente1', 'componente2', 'componente3'];
 
-let petshops = [
-    { id: 1, name: 'CasaPet', coordinates: { lat: -15.9120, lng: -53.1492 } },
-    { id: 2, name: 'Petcila', coordinates: { lat: -15.9120, lng: -53.1492 } },
-    { id: 3, name: 'Real Pet', coordinates: { lat: -15.9120, lng: -53.1492 } },
-    { id: 4, name: 'Pet Nosso', coordinates: { lat: -15.9120, lng: -53.1492 } },
-    { id: 5, name: 'Pet Store', coordinates: { lat: -15.9120, lng: -53.1492 } }
-];
+let vetPetshop = [];
 
-let servicos = [
-    { id: 1, name: 'Banho' },
-    { id: 2, name: 'Tosa' },
-    { id: 3, name: 'Banho e Tosa' },
-    { id: 4, name: 'Pesticida' },
-    { id: 5, name: 'Veterinário' },
-    { id: 6, name: 'Hotelaria' },
-]
+/* Onload  */
+onload = () => {
+    exibeListaPetshop();
+    let vetServM = [];
+
+    /* Tela novo Petshop */
+    document.querySelector('#btnNovoPetshop').onclick = (e) => {
+        mostraComp('componente2');
+    }
+    document.querySelector('#btnNewService').onclick = (e) => {
+        mostraCamposNovoServico();
+    }
+    document.querySelector('#btnVoltarCad').onclick = (e) => {
+        cancelaCadastroPetshop();
+    }
+    document.querySelector('#btnAddService').onclick = (e) => {
+        addNovoServico(vetServM);
+    }
+    document.querySelector('#btnVoltarService').onclick = (e) => {
+        cancelaNovoServico();
+    }
+    document.querySelector('#btnSalvarNovo').onclick = (e) => {
+        addNovoPetshop(vetServM);
+    }
+
+
+    /* Tela editar Petshop */
+    document.querySelector('#btnNewServicePet').onclick = (e) => {
+        mostraCamposNovoServicoPet();
+    }
+    document.querySelector('#btnVoltarPet').onclick = (e) => {
+        voltaListaServicoPet();
+    }
+    document.querySelector('#btnAddServicePet').onclick = (e) => {
+        addNovoServicoPet();
+    }
+    document.querySelector('#btnVoltarIni').onclick = (e) => {
+        mostraComp('componente1');
+    }
+}
 
 const mostraComp = (comp) => {
     telas.forEach((c) => {
@@ -26,18 +50,13 @@ const mostraComp = (comp) => {
     document.querySelector('#' + comp).classList.remove('hidden');
 }
 
-const ativaElem = (elem) => {
-    let irmaos = elem.parentNode.children;
-    for (let i = 0; i < irmaos.length; i++) irmaos[i].classList.remove('active');
-    elem.classList.add('active')
-}
-
-const ExibeListaPetshop = () => {
-    const listaPetshop = document.querySelector('#listaPetshops')
+const exibeListaPetshop = () => {
+    const listaPetshop = document.querySelector('#listaPetshops');
     listaPetshop.innerHTML = '';
-    petshops.forEach((p) => {
+    vetPetshop.forEach((p) => {
         let elemPetshop = document.createElement('li');
         elemPetshop.innerHTML = p.name;
+        elemPetshop.setAttribute('data-id', p.id);
         elemPetshop.classList.add('light');
         elemPetshop.onclick = () => {
             // editar/visualizar petshop
@@ -45,23 +64,114 @@ const ExibeListaPetshop = () => {
         }
         listaPetshop.appendChild(elemPetshop);
     });
-    if (petshops.length > 0) {
+    if (vetPetshop.length > 0) {
         listaPetshop.classList.remove('hidden');
-        document.querySelector('#blank').classList.add('hidden')
+        document.querySelector('#blank').classList.add('hidden');
     } else {
         listaPetshop.classList.add('hidden');
-        document.querySelector('#blank').classList.remove('hidden')
+        document.querySelector('#blank').classList.remove('hidden');
     }
 }
 
-const MostraCamposNovoServico = () => {
+/* Tela novo petshop */
+const mostraCamposNovoServico = () => {
+    document.querySelector('#divFieldServico').classList.remove('hidden');
+    document.querySelector('#ulListaServico').classList.add('hidden');
+    document.querySelector('#divSalvar').classList.add('hidden');
+    document.querySelector('#iptNomeServico').focus();
+    const campoNome = document.querySelector('#iptNomeServico');
+    campoNome.value = '';
+    const campoValor = document.querySelector('#iptValorServico');
+    campoValor.value = '';
+}
+
+const addNovoServico = (vetServM) => {
+    const ulListaServicoPet = document.querySelector('#ulListaServico');
+    ulListaServicoPet.innerHTML = '';
+    const campoNome = document.querySelector('#iptNomeServico');
+    const campoValor = document.querySelector('#iptValorServico');
+    if ((campoNome.value != '' || campoNome.value != null) &&
+        (campoValor.value != '' || campoValor.value != null)) {
+        vetServM.push({
+            id: Math.random().toString().replace('0.', ''),
+            name: campoNome.value,
+            value: campoValor.value
+        });
+        vetServM.forEach((s) => {
+            let elemS = document.createElement('li');
+            elemS.setAttribute('data-id', s.id);
+            elemS.innerHTML = s.name + ' - R$' + s.value;
+            ulListaServicoPet.appendChild(elemS);
+        })
+        document.querySelector('#divFieldServico').classList.add('hidden');
+        document.querySelector('#ulListaServico').classList.remove('hidden');
+        document.querySelector('#divSalvar').classList.remove('hidden');
+    }
+}
+
+const cancelaNovoServico = () => {
+    const campoNome = document.querySelector('#iptNomeServico');
+    campoNome.value = '';
+    const campoValor = document.querySelector('#iptValorServico');
+    campoValor.value = '';
+    document.querySelector('#divFieldServico').classList.add('hidden');
+    document.querySelector('#ulListaServico').classList.remove('hidden');
+    document.querySelector('#divSalvar').classList.remove('hidden');
+}
+
+const addNovoPetshop = (vetServM) => {
+    const campoNome = document.querySelector('#iptNome');
+    const campoEnd = document.querySelector('#iptEndereco');
+    if ((campoNome.value != '' || campoNome.value != null) &&
+        (campoEnd.value != '' || campoEnd.value != null)) {
+        let petshop = {
+            id: Math.random().toString().replace('0.', ''),
+            name: campoNome.value,
+            address: campoEnd.value,
+            services: vetServM
+        };
+        vetPetshop.push(petshop);
+        const listaPetshop = document.querySelector('#listaPetshops');
+        listaPetshop.innerHTML = '';
+        vetPetshop.forEach((p) => {
+            let elemPetshop = document.createElement('li');
+            elemPetshop.innerHTML = p.name;
+            elemPetshop.setAttribute('data-id', p.id);
+            elemPetshop.classList.add('light');
+            elemPetshop.onclick = () => {
+                // editar/visualizar petshop
+                mostraComp('componente3');
+            }
+            listaPetshop.appendChild(elemPetshop);
+        });
+        exibeListaPetshop();
+        mostraComp('componente1');
+    }
+}
+
+
+const cancelaCadastroPetshop = () => {
+    document.querySelector('#iptNome').value = '';
+    document.querySelector('#iptEndereco').value = '';
+    const ulListaServico = document.querySelector('#ulListaServico')
+    ulListaServico.innerHTML = '';
+    document.querySelector('#divFieldServico').classList.add('hidden');
+    document.querySelector('#ulListaServico').classList.remove('hidden');
+    document.querySelector('#divSalvar').classList.remove('hidden');
+    mostraComp('componente1');
+}
+
+/* */
+
+/* Tela editar petshop */
+const mostraCamposNovoServicoPet = () => {
     document.querySelector('#divFieldServicoPet').classList.remove('hidden');
     document.querySelector('#ulListaServicoPet').classList.add('hidden');
     document.querySelector('#divSalvarPet').classList.add('hidden');
     document.querySelector('#iptNomePet').focus();
 }
 
-const AddNovoServico = (obj) => {
+const addNovoServicoPet = (idE) => {
     const ulListaServicoPet = document.querySelector('#ulListaServicoPet')
     ulListaServicoPet.innerHTML = '';
 
@@ -77,7 +187,7 @@ const AddNovoServico = (obj) => {
     document.querySelector('#divSalvarPet').classList.remove('hidden');
 }
 
-const VoltaPetshop = () => {
+const voltaListaServicoPet = () => {
     document.querySelector('#iptNome').value = '';
     document.querySelector('#iptValor').value = '';
     document.querySelector('#divFieldServicoPet').classList.add('hidden');
@@ -85,26 +195,4 @@ const VoltaPetshop = () => {
     document.querySelector('#divSalvarPet').classList.remove('hidden');
 }
 
-onload = () => {
-    ExibeListaPetshop();
-
-    /* Novo Petshop */
-    document.querySelector('#btnNovoPetshop').onclick = (e) => {
-        mostraComp('componente2');
-    }
-
-
-    /* Editar Petshop */
-    document.querySelector('#btnNewServicePet').onclick = (e) => {
-        MostraCamposNovoServico();
-    }
-    document.querySelector('#btnVoltarPet').onclick = (e) => {
-        VoltaPetshop();
-    }
-    document.querySelector('#btnAddServicePet').onclick = (e) => {
-        AddNovoServico();
-    }
-    document.querySelector('#btnVoltarIni').onclick = (e) => {
-        mostraComp('componente1');
-    }
-}
+/* */

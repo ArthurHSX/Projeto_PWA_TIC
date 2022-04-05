@@ -11,62 +11,7 @@
 </head>
 
 <body>
-    <div id="componente-0" class="component hidden">
-        <header class="hearderBar centered">
-            <h1>Delivery pet</h1>
-        </header>
-
-        <div class="content">
-            <div class="buttonGroup">
-                <button class="button sucess">botão</button>
-                <button class="button warning">botão</button>
-                <button class="button danger">botão</button>
-            </div>
-            <div class="mt1 buttonGroup">
-                <button class="button light">Alguma coisa</button>
-            </div>
-            <div class="mt1 buttonGroup">
-                <button class="button light half">Alguma coisa</button>
-                <button class="button dark half">Alguma coisa</button>
-            </div>
-            <div class="mt1 buttonGroup">
-                <button class="button primary third">Alguma coisa</button>
-                <button class="button secondary third">Alguma coisa</button>
-                <button class="button light third">Alguma coisa</button>
-            </div>
-            <div class="mt1 buttonGroup">
-                <button class="button primary quarter">Alguma coisa</button>
-                <button class="button secondary quarter">Alguma coisa</button>
-                <button class="button light quarter">Alguma coisa</button>
-                <button class="button dark quarter">Alguma coisa</button>
-            </div>
-            <div class="mt1 buttonGroup end">
-                <button class="button sucess half">Alguma coisa</button>
-            </div>
-            <div class="mt1 buttonGroup end">
-                <button class="button floatingroundedbutton"></button>
-            </div>
-
-            <h1 class="mt1">Titulo 1</h1>
-            <p>Parágrafo</p>
-            <h2>Titulo 2</h2>
-            <p>Parágrafo</p>
-            <h3>Titulo 3</h3>
-            <p>Parágrafo</p>
-
-            <p class="mt1"></p>
-            <p class="primary">Parágrafo</p>
-            <p class="secondary">Parágrafo</p>
-            <p class="light">Parágrafo</p>
-            <p class="dark">Parágrafo</p>
-            <p class="sucess">Parágrafo</p>
-            <p class="warning">Parágrafo</p>
-            <p class="danger">Parágrafo</p>
-        </div>
-
-    </div>
-
-    <div id="componente1" class="component hidden">
+    <div id="componente1" class="component">
         <header class="hearderBar primary centered">
             <h1>Petshops favoritos</h1>
         </header>
@@ -90,7 +35,7 @@
         </div>
     </div>
 
-    <div id="componente2" class="component">
+    <div id="componente2" class="component hidden">
         <div class="modalArea">
             <div class="container">
                 <div>
@@ -113,7 +58,7 @@
                         <h3>Serviços ofertados:</h3>
                     </div>
                     <div class="buttonGroup end">
-                        <button id="btnNewServicePet" class="button secondary">
+                        <button id="btnNewService" class="button secondary">
                             novo serviço
                         </button>
                     </div>
@@ -122,14 +67,14 @@
                 <div id="divFieldServico" class="mt1 hidden">
                     <div class="field">
                         <label class="fifty">Nome:</label>
-                        <input id="iptNome" type="text">
+                        <input id="iptNomeServico" type="text">
                     </div>
                     <div class="field mt1">
                         <label class="fifty">Preço:</label>
-                        <input id="iptValor" type="text">
+                        <input id="iptValorServico" type="text">
                     </div>
                     <div class="buttonGroup mt3">
-                        <button id="btnVoltarPet" class="button ">Voltar</button>
+                        <button id="btnVoltarService" class="button ">Voltar</button>
                         <button id="btnAddService" class="button sucess">Adicionar servico</button>
                     </div>
                 </div>
@@ -137,10 +82,10 @@
                 <ul id="ulListaServico" class="list">
                 </ul>
 
-                <div id="divSalvarPetshop">
+                <div id="divSalvar">
                     <div class="buttonGroup mt3">
-                        <button id="btnVoltarIni" class="button ">Voltar</button>
-                        <button class="button sucess">Confirmar</button>
+                        <button id="btnVoltarCad" class="button ">Voltar</button>
+                        <button id="btnSalvarNovo" class="button sucess">Confirmar</button>
                     </div>
                 </div>
 
